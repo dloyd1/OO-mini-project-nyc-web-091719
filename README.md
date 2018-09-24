@@ -28,7 +28,7 @@ should take an array of ingredient instances as an argument, and associate each 
 ### `User`
 Build the following methods on the User class
 
-- `User.all`
+-DONE `User.all`
 should return all of the user instances
 - `User#recipes`
 should return all of the recipes this user has recipe cards for
@@ -45,7 +45,7 @@ should return the recipe most recently added to the user's cookbook.
 
 
 
-### `RecipeCard`
+### `RecipeCard` - DONE
 A RecipeCard is the join between a user instance and a recipe instance.  This is a has-many-through relationship.
 Build the following methods on the RecipeCard class:  
 
@@ -60,7 +60,7 @@ should return the user to which the entry belongs
 - `RecipeCard#recipe`
 should return the recipe to which the entry belongs
 
-### `Ingredient`
+### `Ingredient` - DONE
 Build the following methods on the Ingredient class
 
 - `Ingredient.all`
@@ -69,7 +69,7 @@ should return all of the ingredient instances
 should return the ingredient instance that the highest number of users are allergic to
 
 
-### `RecipeIngredient`
+### `RecipeIngredient` - DONE
 RecipeIngredient is the join between an ingredient and a recipe.  This is a has-many-through relationship
 Build the following methods on the RecipeIngredient class
 
