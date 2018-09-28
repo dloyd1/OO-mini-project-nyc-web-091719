@@ -1,6 +1,6 @@
 require 'pry'
 class Recipe
-attr_accessor :name, :ingredients, :allergens
+attr_accessor :name
 
   @@all = []
 
@@ -14,27 +14,27 @@ attr_accessor :name, :ingredients, :allergens
   end
 
   def self.most_popular
-    all.max_by {|recipes| all.count(recipes)}
+    arr = RecipeCard.all.map {|x| x.recipe.name}
+    arr2 = arr.max_by {|x1| arr.count(x1)}
   end
 
   def users
-   new = RecipeCard.all.select {|rc| rc.recipe == self }
-   new.map { |rc| rc.user}
-
+   arr1 = RecipeCard.all.select {|rc| rc.recipe == self}
+   arr1.map { |rc| rc.user}
   end
 
   def ingredients
-  new = RecipeIngredient.all.select {|ing| ing.recipe == self }
-  new.map { |ing| ing.ingredient}
+    arr2 = RecipeIngredient.all.select {|ing| ing.recipe == self }
+    arr2.map { |ing| ing.ingredient}
   end
 
   def allergens
-new = Allergen.all.select {|a| a.ingredient == self.ingredients}
-new.map {|a| a.ingredient}
+    arr3 = Allergen.all.map {|a| a.ingredient}
+    arr4 = arr3.select {|x| self.ingredients.include?(x)}.uniq
   end
 
   def add_ingredients(ingredients)
-    self.ingredients
+
   end
 
 end

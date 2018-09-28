@@ -13,7 +13,8 @@ def initialize(name)
 end
 
 def self.most_common_allergen
-  all.max_by {|ingredient| all.count(ingredient)}
+  arr1 = Allergen.all.map {|x| x.ingredient}
+  arr2 = arr1.max_by {|x| arr1.count(x)}.name
 end
 
 end
